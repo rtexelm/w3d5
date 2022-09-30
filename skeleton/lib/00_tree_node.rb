@@ -32,8 +32,10 @@ class PolyTreeNode
         child_node.parent = nil
     end
 
-    
-
-
+    def dfs(target_val)
+        if self.value == target_val
+            return self
+        end
+    end
 
 end
