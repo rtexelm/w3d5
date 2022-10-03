@@ -45,14 +45,17 @@ class KnightPathFinder
 
     def build_move_tree
 
-        node_queue = []
+        node_queue = [@root_node]
 
-        to_nodes = new_move_positions(@root_node)
+       until node_queue.empty?
+        node = node_queue.shift
+        
+       end
 
         # @considered
 
         # bfs_arr = [self]
-       
+
 
         # until bfs_arr.empty?
         #     node = bfs_arr.shift
