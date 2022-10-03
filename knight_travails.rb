@@ -29,19 +29,39 @@ class KnightPathFinder
         @considered_positions = [position]
     end
 
-    def new_move_positions(pos)
+    def new_move_positions(pos) #[0, 0]
         valid_moves = KnightPathFinder.valid_moves(pos)
 
-        new_positions = []
+        new_positions = [] #[2,3] [3,2]
         valid_moves.each do |m|
             new_positions << m if !@considered_positions.include?(m)
 
         end
 
         @considered_positions += new_positions
+
         new_positions
     end
 
+    def build_move_tree
+
+        node_queue = []
+
+        to_nodes = new_move_positions(@root_node)
+
+        # @considered
+
+        # bfs_arr = [self]
+       
+
+        # until bfs_arr.empty?
+        #     node = bfs_arr.shift
+        #     return node if node.value == target_val
+        #     bfs_arr += node.children
+        # end
+
+        # return nil
+    end
 end
 
 
