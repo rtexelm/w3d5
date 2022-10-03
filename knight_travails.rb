@@ -2,6 +2,8 @@ require_relative "./skeleton/lib/00_tree_node.rb"
 
 class KnightPathFinder
 
+    attr_reader :considered_positions
+
     def self.valid_moves(pos)
         row, col = pos
 
@@ -28,8 +30,23 @@ class KnightPathFinder
     end
 
     def new_move_positions(pos)
-        # KnightPathFinder.valid_moves(pos)
+        valid_moves = KnightPathFinder.valid_moves(pos)
 
+        new_positions = []
+        valid_moves.each do |m|
+            new_positions << m if !@considered_positions.include?(m)
+
+        end
+
+        @considered_positions += new_positions
+        new_positions
     end
 
 end
+
+
+p k = KnightPathFinder.new([0, 0])
+p k.new_move_positions([1, 1])
+p k.considered_positions
+p k.new_move_positions([4, 4])
+p k.considered_positions
