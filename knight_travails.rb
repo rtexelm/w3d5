@@ -47,14 +47,15 @@ class KnightPathFinder
 
         node_queue = [@root_node]
 
-       until node_queue.empty?
-        node = node_queue.shift
-        
-       end
-
-        # @considered
-
-        # bfs_arr = [self]
+        until node_queue.empty?
+            node = node_queue.shift
+            new_pos = new_move_positions(node.value)
+            new_pos.each do |p|
+                instance = PolyTreeNode.new(p)
+                instance.parent = pos
+                node_queue << instance
+            end
+        end
 
 
         # until bfs_arr.empty?
@@ -63,7 +64,6 @@ class KnightPathFinder
         #     bfs_arr += node.children
         # end
 
-        # return nil
     end
 end
 
